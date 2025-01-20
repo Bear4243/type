@@ -111,3 +111,54 @@ export function Main() {
     </div>
   );
 }
+
+/*
+import React from "react";
+
+// UserCard.tsx
+interface UserCardProps {
+  name: string;
+  email: string;
+  role: "admin" | "user";
+}
+
+const UserCard: React.FC<UserCardProps> = ({ name, email, role }) => {
+  return (
+    <div>
+      <h2>{name}</h2>
+      <p>{email}</p>
+      <span>{role}</span>
+    </div>
+  );
+};
+
+
+/ 3. 이벤트 핸들러
+interface InputProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+}
+
+const Input: React.FC<InputProps> = ({ value, onChange, placeholder }) => {
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+    />
+  );
+};
+
+import { useState } from "react";
+
+const useCounter = (initialValue: number = 0) => {
+  const [count, setCount] = useState<number>(initialValue);
+
+  const increment = () => setCount((prev) => prev + 1);
+  const decrement = () => setCount((prev) => prev - 1);
+
+  return { count, increment, decrement };
+};
+*/
