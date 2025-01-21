@@ -2,12 +2,27 @@ import React, { useEffect, useState } from "react";
 import { ArticleBest } from "./articleBest/ArticleBest.jsx";
 import { ArticleSell } from "./articleSell/ArticleSell.jsx";
 import { ArticlePage } from "./articlePage/ArticlePage.jsx";
+// import할 때는 뒤에 확장자명 .tsx지우기
 import { apiList } from "../api/Api.js";
 import "./main.css";
 
-export function Main() {
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  images: string[];
+  favoriteCount: number;
+}
+
+interface Props {
+  list: Product[];
+  totalCount: number;
+}
+
+export function Main(): Props {
   //pc : 1200px이상  tablet : 744px이상  mobile : 743px이하 375px이상
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // 훅에는 이렇게 쓰는거
   const [apiData, setApiData] = useState([]);
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
@@ -93,7 +108,7 @@ export function Main() {
 
   // console.log("page 현재 페이지", page);
 
-  if (!apiData) return <></>;
+  if (!apiData) return <>데이터를 불러오는 중입니다...</>;
 
   return (
     <div id="main">
@@ -113,8 +128,6 @@ export function Main() {
 }
 
 /*
-import React from "react";
-
 // UserCard.tsx
 interface UserCardProps {
   name: string;
