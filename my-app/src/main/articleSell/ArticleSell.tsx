@@ -1,6 +1,29 @@
-import { ArticleSellDropDown } from "./articleSellDropDown/ArticleSellDropDown.jsx";
+import React from "react";
+import { ArticleSellDropDown } from "./articleSellDropDown/ArticleSellDropDown.js";
 import "./articleSell.css";
-export function ArticleSell({ info, selectedOption, setSelectedOption }) {
+
+// 상품 타입 지정해서 info에 넣기
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+}
+
+interface Props {
+  info: Product[];
+  selectedOption: string;
+  // set은 왠지 몰라도 이렇게 써야하네
+  setSelectedOption: (value: string) => string;
+}
+
+// function이면 이렇게 const면 : React.FC<Props> = 이렇게
+export function ArticleSell({
+  info,
+  selectedOption,
+  setSelectedOption,
+}: Props) {
   if (info === undefined) {
     return <div>로딩중</div>;
   }
