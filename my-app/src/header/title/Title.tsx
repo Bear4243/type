@@ -1,5 +1,6 @@
+import React from "react";
 import "./title.css";
-export function Title({}) {
+export function Title() {
   return (
     <div id="title">
       <div className="titleImg">

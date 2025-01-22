@@ -12,26 +12,31 @@ interface Product {
   price: number;
   images: string[];
   favoriteCount: number;
+  list: string[];
+  totalCount: string;
 }
 
 interface Props {
-  list: Product[];
+  info: Product;
   totalCount: number;
+  setSelectedOption: (parameter: string) => string;
+  currentPage: number;
 }
 
 export function Main(): Props {
   //pc : 1200px이상  tablet : 744px이상  mobile : 743px이하 375px이상
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   // 훅에는 이렇게 쓰는거
-  const [apiData, setApiData] = useState([]);
-  const [page, setPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-  const [orderBy, setOrderBy] = useState("recent");
-  const [totalCount, setTotalCount] = useState(0);
-  const [favoriteApiData, setFavoriteApiData] = useState([]);
-  const [favoriteApiPage, setFavoriteApiPage] = useState(1);
-  const [favoriteApiPageSize, setFavoriteApiPageSize] = useState(4);
-  const [favoriteApiOrderBy, setFavoriteApiOrderBy] = useState("favorite");
+  const [apiData, setApiData] = useState<Product[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [orderBy, setOrderBy] = useState<string>("recent");
+  const [totalCount, setTotalCount] = useState<number>(0);
+  const [favoriteApiData, setFavoriteApiData] = useState<Product[]>([]);
+  const [favoriteApiPage, setFavoriteApiPage] = useState<number>(1);
+  const [favoriteApiPageSize, setFavoriteApiPageSize] = useState<number>(4);
+  const [favoriteApiOrderBy, setFavoriteApiOrderBy] =
+    useState<string>("favorite");
 
   const handleResize = () => {
     setScreenWidth(window.innerWidth);
@@ -126,52 +131,3 @@ export function Main(): Props {
     </div>
   );
 }
-
-/*
-// UserCard.tsx
-interface UserCardProps {
-  name: string;
-  email: string;
-  role: "admin" | "user";
-}
-
-const UserCard: React.FC<UserCardProps> = ({ name, email, role }) => {
-  return (
-    <div>
-      <h2>{name}</h2>
-      <p>{email}</p>
-      <span>{role}</span>
-    </div>
-  );
-};
-
-
-/ 3. 이벤트 핸들러
-interface InputProps {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-}
-
-const Input: React.FC<InputProps> = ({ value, onChange, placeholder }) => {
-  return (
-    <input
-      type="text"
-      value={value}
-      onChange={onChange}
-      placeholder={placeholder}
-    />
-  );
-};
-
-import { useState } from "react";
-
-const useCounter = (initialValue: number = 0) => {
-  const [count, setCount] = useState<number>(initialValue);
-
-  const increment = () => setCount((prev) => prev + 1);
-  const decrement = () => setCount((prev) => prev - 1);
-
-  return { count, increment, decrement };
-};
-*/

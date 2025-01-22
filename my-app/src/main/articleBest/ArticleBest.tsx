@@ -1,6 +1,21 @@
+import React from "react";
 import "./articleBest.css";
 
-export function ArticleBest({ info }) {
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  images: string;
+  favoriteCount: number;
+}
+
+interface Props {
+  info: Product[];
+  selectedOption: string;
+  // set은 왠지 몰라도 이렇게 써야하네
+  setSelectedOption: (value: string) => void;
+}
+export function ArticleBest({ info }): Props {
   if (info === undefined) {
     return <div>로딩중</div>;
   }

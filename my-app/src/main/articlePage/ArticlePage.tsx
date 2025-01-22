@@ -1,7 +1,17 @@
-import { useState } from "react";
-import { ArticlePageBtnCreate } from "./articlePageBtnCreate/ArticlePageBtnCreate.jsx";
+import React from "react";
+import { ArticlePageBtnCreate } from "./articlePageBtnCreate/ArticlePageBtnCreate.tsx";
 import "./articlePage.css";
-export function ArticlePage({ currentPage, SetCurrentPage, totalCount }) {
+
+interface Props {
+  currentPage: number;
+  SetCurrentPage: (value: Number) => void;
+  totalCount: number;
+}
+export function ArticlePage({
+  currentPage,
+  SetCurrentPage,
+  totalCount,
+}: Props) {
   return (
     <div id="articlePage">
       <button className="buttonExtra">{"<"}</button>
