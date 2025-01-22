@@ -15,7 +15,7 @@ interface Props {
   info: Product[];
   selectedOption: string;
   // set은 왠지 몰라도 이렇게 써야하네
-  setSelectedOption: (value: string) => string;
+  setSelectedOption: (value: string) => void;
 }
 
 // function이면 이렇게 const면 : React.FC<Props> = 이렇게
