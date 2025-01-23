@@ -2,12 +2,20 @@ export const url = new URL("https://panda-market-api.vercel.app/products");
 const headers = {
   "Content-Type": "application/json",
 };
+interface post {
+  page: Number;
+  pageSize: Number;
+  orderBy: String;
+  body: string;
+  data: string;
+  createdAt: string;
+}
 
 async function getProductListInquiry(
-  page: Number = 1,
-  pageSize: Number = 10,
-  orderBy: String = "recent"
-) {
+  page = 1,
+  pageSize = 10,
+  orderBy = "recent"
+): Promise<post[]> {
   try {
     const response = await fetch(
       `${url}?page=${page}&pageSize=${pageSize}&limit=3&orderBy=${orderBy}`,

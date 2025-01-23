@@ -1,7 +1,6 @@
 import React, { ChangeEvent } from "react";
 
 interface Props {
-  // 어이없네 number 랑 Number 다른거였네
   /*
      TypeScript에서 Number는 래퍼 객체 타입, 즉 new Number()를 통해 생성된 객체 타입입니다.
      반면, number(소문자)는 기본적인 원시 타입입니다.
