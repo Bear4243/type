@@ -1,9 +1,9 @@
-import { Header } from "./header/Header.jsx";
-import { Main } from "./main/Main.jsx";
-import { Footer } from "./footer/Footer.tsx/index.js";
+import { Header } from "./header/Header.js";
+import { Main } from "./main/Main.js";
+import { Footer } from "./footer/Footer.tsx";
 import "./App.css";
 
-function App() {
+function App(): React.JSX.Element {
   console.log("App");
   return (
     <div id="app">
