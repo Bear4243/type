@@ -1,5 +1,6 @@
+import React from "react";
 import "./footer.css";
-export function Footer() {
+export const Footer = (): React.ReactElement => {
   return (
     <div id="footer">
       <div id="footer_bottom_contents">
@@ -16,16 +17,16 @@ export function Footer() {
         </div>
         <div id="footer_ad">
           <a target="_blank" href="https://www.facebook.com/">
-            <img src={"/img/ic_facebook.png"}></img>
+            <img src={"/img/ic_facebook.png"} alt="페이스북사진"></img>
           </a>
           <a target="_blank" href="https://x.com/">
-            <img src={"/img/ic_twitter.png"}></img>
+            <img src={"/img/ic_twitter.png"} alt="트위터사진"></img>
           </a>
           <a target="_blank" href="https://www.youtube.com/">
-            <img src={"/img/ic_youtube.png"}></img>
+            <img src={"/img/ic_youtube.png"} alt="유튜브사진"></img>
           </a>
           <a target="_blank" href="https://www.instagram.com/">
-            <img src={"/img/ic_instagram.png"}></img>
+            <img src={"/img/ic_instagram.png"} alt="인스타그램사진"></img>
           </a>
         </div>
       </div>
@@ -40,16 +41,16 @@ export function Footer() {
         </div>
         <div id="footer_ad">
           <a target="_blank" href="https://www.facebook.com/">
-            <img src={"/img/ic_facebook.png"}></img>
+            <img src={"/img/ic_facebook.png"} alt="페이스북사진"></img>
           </a>
           <a target="_blank" href="https://x.com/">
-            <img src={"/img/ic_twitter.png"}></img>
+            <img src={"/img/ic_twitter.png"} alt="트위터사진"></img>
           </a>
           <a target="_blank" href="https://www.youtube.com/">
-            <img src={"/img/ic_youtube.png"}></img>
+            <img src={"/img/ic_youtube.png"} alt="유튜브사진"></img>
           </a>
           <a target="_blank" href="https://www.instagram.com/">
-            <img src={"/img/ic_instagram.png"}></img>
+            <img src={"/img/ic_instagram.png"} alt="인스타그램사진"></img>
           </a>
         </div>
         <div id="footer_copyright">
@@ -58,4 +59,4 @@ export function Footer() {
       </div>
     </div>
   );
-}
+};

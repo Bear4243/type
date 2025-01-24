@@ -6,33 +6,42 @@ import { ArticlePage } from "./articlePage/ArticlePage.jsx";
 import { apiList } from "../api/Api.js";
 import "./main.css";
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  images: string[];
-  favoriteCount: number;
-  list: string[];
-  totalCount: string;
+// interface Product {
+//   id: number;
+//   name: string;
+//   price: number;
+//   images: string[];
+//   favoriteCount: number;
+//   list: string[];
+//   totalCount: string;
+// }
+
+interface post {
+  page: number;
+  pageSize: number;
+  orderBy: string;
+  body: string;
+  data: string;
+  createdAt: string;
 }
 
 interface Props {
-  info: Product;
+  info: post[];
   totalCount: number;
   setSelectedOption: (parameter: string) => string;
   currentPage: number;
 }
 
-export function Main(): Props {
+export function Main(): Props | React.ReactElement {
   //pc : 1200px이상  tablet : 744px이상  mobile : 743px이하 375px이상
   const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
   // 훅에는 이렇게 쓰는거
-  const [apiData, setApiData] = useState<Product[]>([]);
+  const [apiData, setApiData] = useState<post[]>([]);
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(10);
   const [orderBy, setOrderBy] = useState<string>("recent");
   const [totalCount, setTotalCount] = useState<number>(0);
-  const [favoriteApiData, setFavoriteApiData] = useState<Product[]>([]);
+  const [favoriteApiData, setFavoriteApiData] = useState<post[]>([]);
   const [favoriteApiPage, setFavoriteApiPage] = useState<number>(1);
   const [favoriteApiPageSize, setFavoriteApiPageSize] = useState<number>(4);
   const [favoriteApiOrderBy, setFavoriteApiOrderBy] =
@@ -73,12 +82,12 @@ export function Main(): Props {
     const getApiData = async () => {
       try {
         console.log("API 실행");
-        const response = await apiList.getProductListInquiry(
+        const response: post[] = await apiList.getProductListInquiry(
           page,
           pageSize,
           orderBy
         );
-        const bestResponse = await apiList.getProductListInquiry(
+        const bestResponse: post[] = await apiList.getProductListInquiry(
           favoriteApiPage,
           favoriteApiPageSize,
           favoriteApiOrderBy

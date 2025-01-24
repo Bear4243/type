@@ -3,9 +3,9 @@ const headers = {
   "Content-Type": "application/json",
 };
 interface post {
-  page: Number;
-  pageSize: Number;
-  orderBy: String;
+  page: number;
+  pageSize: number;
+  orderBy: string;
   body: string;
   data: string;
   createdAt: string;
@@ -26,31 +26,19 @@ async function getProductListInquiry(
         },
       }
     );
-    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data: post[] = await response.json();
     console.log("getProductListInquiry data : ", data);
     return data;
   } catch (err) {
     console.log("getProductListInquiry err : ", err);
+    // 요놈 때문에 오류 난거구만
+    return Promise.reject(err);
   }
 }
 
-/// 쓰게 되면 봉인 해제
-// const postProductRegistration = async (params) => {
-//   try {
-//     const response = await fetch(`${url}`, {
-//       method: "POST",
-//       headers,
-//       body: JSON.stringify(params),
-//     });
-//     const data = await response.json();
-//     console.log("postProductRegistration Data : " + JSON.stringify(data));
-//     return data;
-//   } catch (error) {
-//     console.log("postProductRegistration Error : " + error);
-//   }
-// };
-
 export const apiList = {
   getProductListInquiry,
-  // postProductRegistration,
 };
