@@ -3,7 +3,7 @@ import { ArticleSellDropDown } from "./articleSellDropDown/ArticleSellDropDown.j
 import "./articleSell.css";
 
 // 상품 타입 지정해서 info에 넣기
-interface Product {
+interface post {
   id: number;
   name: string;
   price: number;
@@ -12,9 +12,9 @@ interface Product {
 }
 
 interface Props {
-  info: Product[];
+  info: post[];
   selectedOption: string;
-  // set은 왠지 몰라도 이렇게 써야하네
+  // 그렇네 이자식은 parameter 받아서 값 지정하네
   setSelectedOption: (value: string) => void;
 }
 
@@ -23,7 +23,8 @@ export function ArticleSell({
   info,
   selectedOption,
   setSelectedOption,
-}: Props) {
+}: // 아니 왜 React.ReactElement 이건 되는데 JSX.Element 요놈은 뭘 계속 찾을수 없다는겨
+Props): React.ReactElement {
   if (info === undefined) {
     return <div>로딩중</div>;
   }

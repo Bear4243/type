@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
-    "jsx": "react", // return()안에 jsx?그런거 쓸 수 있게 해주는놈
+    "jsx": "react-jsx", // return()안에 jsx?그런거 쓸 수 있게 해주는놈
     "allowImportingTsExtensions": true, // 뒤에 확장자명 .tsx 쓸 수 있게 해주는놈
     "noEmit": true, // 컴파일된 파일을 생성하지 않음
+    "types": ["react", "react-dom"],
     /* Projects */
     // "incremental": true,                              /* Save .tsbuildinfo files to allow for incremental compilation of projects. */
     // "composite": true,                                /* Enable constraints that allow a TypeScript project to be used with project references. */

@@ -1,7 +1,7 @@
 import React from "react";
 import "./articleBest.css";
 
-interface Product {
+interface post {
   id: number;
   name: string;
   price: number;
@@ -10,12 +10,12 @@ interface Product {
 }
 
 interface Props {
-  info: Product[];
+  info: post[];
   selectedOption: string;
   // set은 왠지 몰라도 이렇게 써야하네
   setSelectedOption: (value: string) => void;
 }
-export function ArticleBest({ info }): Props {
+export function ArticleBest({ info }: Props): React.ReactElement {
   if (info === undefined) {
     return <div>로딩중</div>;
   }
@@ -33,10 +33,7 @@ export function ArticleBest({ info }): Props {
               <p className="articleBestProductName">{item.name}</p>
               <p className="articleBestProductPrice">{item.price}원</p>
               <div className="articleBestProductFavoriteCount">
-                <img
-                  src={process.env.PUBLIC_URL + "/img/ic_heart.png"}
-                  alt=""
-                />
+                <img src="/img/ic_heart.png" alt="" />
                 <p>{item.favoriteCount}</p>
               </div>
             </div>

@@ -4,23 +4,34 @@ import "./articlePage.css";
 
 interface Props {
   currentPage: number;
-  SetCurrentPage: (value: Number) => void;
+  SetCurrentPage: (value: number) => void;
   totalCount: number;
 }
 export function ArticlePage({
   currentPage,
   SetCurrentPage,
   totalCount,
-}: Props) {
+}: Props): React.ReactElement {
   return (
     <div id="articlePage">
-      <button className="buttonExtra">{"<"}</button>
+      <button
+        className="buttonExtra"
+        onClick={() => SetCurrentPage(currentPage - 1)}
+      >
+        {"<"}
+      </button>
+      {/* 이건 모르겠네 */}
       <ArticlePageBtnCreate
         currentPage={currentPage}
         SetCurrentPage={SetCurrentPage}
         totalCount={totalCount}
       />
-      <button className="buttonExtra">{">"}</button>
+      <button
+        className="buttonExtra"
+        onClick={() => SetCurrentPage(currentPage - 1)}
+      >
+        {">"}
+      </button>
     </div>
   );
 }

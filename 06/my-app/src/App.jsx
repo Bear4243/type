@@ -1,6 +1,6 @@
 import { Header } from "./header/Header.jsx";
 import { Main } from "./main/Main.jsx";
-import { Footer } from "./footer/Footer.jsx";
+import { Footer } from "./footer/Footer.tsx/index.js";
 import "./App.css";
 
 function App() {

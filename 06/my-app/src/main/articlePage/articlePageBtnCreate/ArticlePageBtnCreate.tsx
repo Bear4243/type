@@ -13,7 +13,8 @@ export function ArticlePageBtnCreate({
   currentPage,
   SetCurrentPage,
   totalCount,
-}: Props) {
+}: // 일부 코드 경로가 값을 반환하지 않습니다 왜지
+Props): React.ReactElement | undefined | void {
   const totalPage: number =
     totalCount % 10 !== 0 ? Math.ceil(totalCount / 10) : totalCount / 10;
   const startPage: number = Math.max(1, currentPage - 2);
@@ -50,5 +51,8 @@ export function ArticlePageBtnCreate({
       );
     }
     return <>{buttons}</>;
+    // else을 안썼네
+  } else {
+    return console.log("실패");
   }
 }
